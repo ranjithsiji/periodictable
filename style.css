@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap');
+
+html {
+ font-size: 16px;
+ background-color: #000;
+}
+html, a {
+ font-family: 'Archivo Narrow', sans-serif;
+ font-weight: normal;
+ font-style: normal;
+ color: #093852;
+}
+#tableau .periode {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+#entete-period {
+  position: absolute;
+  color: #fff;
+  width: 10%;
+}
+#entete-period .fleche {
+  padding-left: 6%;
+}
+#entete-group {
+  text-align: center;
+  color: #fff;
+}
+#entete-group p {
+  display: inline-block;
+  margin: 0 17px;
+}
+#periode-8.periode {
+  display: none;
+}
+.cel {
+  flex-basis: 5%;
+  max-width: 5%;
+  margin-right: 0.1%;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.1%;
+  position:relative;
+  cursor: default;
+}
+.element {
+  cursor: pointer;
+}
+.index {
+  visibility: visible;
+  color: #fff;
+}
+.cel[data-col='0'] .index-value {
+  position: relative;
+  top: 41%;
+}
+.cel[data-col='0'] {
+  flex-basis: 1.5%;
+}
+#periode-0 .cel[data-col='0'],
+#periode-9 .cel[data-col='0'],
+#periode-10 .cel[data-col='0'] {
+  visibility: hidden;
+}
+.display-name {
+  visibility: visible;
+  overflow: visible;
+  color:#093852;
+  filter: saturate(20);
+}
+.nom {
+  font-size: 5em;
+  opacity:0;
+  position: absolute;
+  top: -20%;
+  left: 70%;
+  transition: opacity 1s ease;
+}
+.nom-visible {
+  opacity:1;
+}
+.num {
+  white-space: nowrap;
+}
+.symbol {
+  font-size: 2em;
+}
+.masse {
+  overflow: hidden;
+}
+
+#periode-6 .cel[data-col='3'],
+#periode-7 .cel[data-col='3'],
+#periode-9 .cel[data-col='2'],
+#periode-10 .cel[data-col='2'] {
+  visibility: visible;
+  cursor: pointer;
+}
+#periode-9 .cel[data-col='2'],
+#periode-10 .cel[data-col='2'] {
+  text-align: right;
+  overflow: visible;
+  direction: rtl;
+  color: #fff;
+}
+.lan-act-fleche {
+  font-size: 2em;
+}
+#periode-9 .cel[data-col='2'] .lan-act-fleche,
+#periode-10 .cel[data-col='2'] .lan-act-fleche {
+  margin-top: 0.6em;
+  color:#093852;
+  filter: saturate(20);
+}
+#periode-9 .cel[data-col='2'] .masse,
+#periode-10 .cel[data-col='2'] .masse {
+  overflow: visible;
+}
+#periode-9 .cel[data-col='2'].unhover-arrow .lan-act-fleche,
+#periode-10 .cel[data-col='2'].unhover-arrow .lan-act-fleche {
+  opacity: 0;
+  transition: opacity 1s linear;
+}
+#periode-9 .cel[data-col='2'].hover-arrow .lan-act-fleche,
+#periode-10 .cel[data-col='2'].hover-arrow .lan-act-fleche {
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+#periode-9 .cel[data-col='2'].unhover-arrow .masse,
+#periode-10 .cel[data-col='2'].unhover-arrow .masse {
+  color:#fff;
+  filter: saturate(1);
+  transition: color 1.5s ease .2s, filter 1.5s ease .2s;
+}
+#periode-9 .cel[data-col='2'].hover-arrow .masse,
+#periode-10 .cel[data-col='2'].hover-arrow .masse {
+  color:#093852;
+  filter: saturate(20);
+  transition: color 1.5s ease .2s, filter 1.5s ease .2s;
+}
+#legende {
+  text-align: center;
+  margin-top: 17px;
+  color: #fff;
+}
+#legende div {
+  display: inline-block;
+}
+.legende-famille {
+  position: relative;
+  overflow: hidden;
+  margin-left: 7px;
+}
+.legende-coul {
+  width: 21px;
+  height: 21px;
+  margin-right: 3px;
+  position: relative;
+  top: 2px;
+}
+.legende-nom {
+  margin-right: 7px;
+  height: 27px;
+  vertical-align: middle;
+}
+.legende-nom-survol {
+  color: #093852;
+  filter: saturate(20);
+  transition: color 1.5s ease .2s, filter 1.5s ease .2s;
+}
+.legende-nom-out {
+  color: #fff;
+  filter: saturate(1);
+}
+.legende-fond {
+  position: absolute;
+  top:2px;
+  overflow: hidden;
+  left: -100%;
+  background-color: red;
+  z-index: -1;
+  width: 100%;
+  height: 21px;
+  opacity: .3;
+}
+.legende-survol {
+  transform: translateX(100%);
+  transition: transform 1s ease;
+}
+.legende-out {
+  transform: translateX(-100%);
+  transition: transform 0.7s ease-out;
+}
+.cel.element > div:first-child,
+#periode-6 .cel[data-col='3'] > div.lanthanide,
+#periode-7 .cel[data-col='3'] > div.actinide {
+  transition: background-color 1s ease-out;
+}
+.cel .num,
+.cel .symbol,
+.cel .lan-act-fleche,
+.cel .masse {
+  filter: saturate(1);
+  transition: filter 1s ease-out;
+}
+.cel:hover .num,
+.cel:hover .symbol,
+.cel:hover .lan-act-fleche,
+.cel:hover .masse {
+  filter: saturate(20);
+}
+
+.alkali-metal { background-color: rgb(64, 224, 208) }
+.alkaline-earth-metal  { background-color: rgb(102, 207, 166) }
+.transition-metal { background-color: rgb(140, 190, 125) }
+.lanthanide { background-color: rgb(179, 174, 83) }
+.actinide { background-color: rgb(217, 157, 41) }
+.unknown { background-color: rgb(255, 140, 0) }
+.metalloid  { background-color: rgb(255, 112, 26) }
+.post-transition-metal { background-color: rgb(255, 84, 51) }
+.polyatomic-nonmetal { background-color: rgb(255, 56, 77) }
+.diatomic-nonmetal { background-color: rgb(255, 27, 103) }
+.noble-gas { background-color: rgb(255, 1, 127) }
+
+.cel:hover > .alkali-metal { background-color: rgba(64, 224, 208, 0.3) }
+.cel:hover > .alkaline-earth-metal  { background-color: rgba(102, 207, 166, 0.3) }
+.cel:hover > .transition-metal { background-color: rgba(140, 190, 125, 0.3) }
+.cel:hover > .lanthanide { background-color: rgba(179, 174, 83, 0.3) }
+.cel:hover > .actinide { background-color: rgba(217, 157, 41, 0.3) }
+.cel:hover > .unknown { background-color: rgba(255, 140, 0, 0.3) }
+.cel:hover > .metalloid  { background-color: rgba(255, 112, 26, 0.3) }
+.cel:hover > .post-transition-metal { background-color: rgba(255, 84, 51, 0.3) }
+.cel:hover > .polyatomic-nonmetal { background-color: rgba(255, 56, 77, 0.3) }
+.cel:hover > .diatomic-nonmetal { background-color: rgba(255, 27, 103, 0.3) }
+.cel:hover > .noble-gas { background-color: rgba(255, 1, 127, 0.3) }
+
+.alkali-metal-back { background-color: rgba(106, 231, 218, 0.9) }
+.alkaline-earth-metal-back { background-color: rgba(142, 220, 190, 0.9) }
+.transition-metal-back { background-color: rgba(171, 207, 160, 0.9) }
+.lanthanide-back { background-color: rgba(194, 190, 117, 0.9) }
+.actinide-back { background-color: rgba(225, 178, 86, 0.9) }
+.unknown-back { background-color: rgba(255, 163, 51, 0.9) }
+.metalloid-back  { background-color: rgba(255, 144, 76, 0.9) }
+.post-transition-metal-back { background-color: rgba(255, 127, 102, 0.9) }
+.polyatomic-nonmetal-back { background-color: rgba(255, 107, 123, 0.9) }
+.diatomic-nonmetal-back { background-color: rgba(255, 76, 136, 0.9) }
+.noble-gas-back { background-color: rgba(255, 51, 152, 0.9) }
+
+#pres-element {
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.pres-margin {
+  width: 94%;
+  min-height: 94%;
+  position: absolute;
+  top: 3%;
+  left: 3%;
+}
+#pres-content {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+}
+#description {
+  overflow: hidden;
+}
+.invisible {
+  display: none;
+}
+.visible {
+  display: block;
+}
+.opacity-zero {
+  opacity: 0;
+}
+.opacity-one {
+  opacity: 1;
+  transition: opacity ease;
+}
+
+#close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  border: none;
+  font-size: 2em;
+  line-height: 1;
+  transition: opacity 1s ease;
+}
+#close:hover {
+  cursor:pointer;
+  opacity:0.3;
+}
+#presentation-nom {
+  font-size: 5em;
+  margin: 0.3em 0 0;
+  text-align: center;
+}
+
+.col {
+  width: 47%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 35px;
+  padding: 1%;
+}
+#orbitales {
+  position: relative;
+  margin: 0 auto;
+  width: 47vw;
+  height: 47vw;
+  max-width: 600px;
+  max-height: 600px;
+}
+.orbite {
+  border-radius:50%;
+  position: absolute;
+  border: solid 1px #093852;
+}
+
+.electrons-set {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.electrons-set-start {
+  transform: rotate(-180deg);
+}
+.electrons-set-transition:nth-child(odd) {
+  transform: rotate(0deg);
+}
+.electrons-set-transition:nth-child(even) {
+  transform: rotate(-360deg);
+}
+.electrons-set-transition {
+  transition: transform ease;
+}
+.electron {
+  border: solid 1px #093852;
+  width: 3%;
+  height: 3%;
+  margin-right: 3px;
+  position: absolute;
+  display: inline-block;
+  border-radius:50%;
+  font-size:0.5em;
+}
+.proton {
+  border: solid 1px #093852;
+  width: 20%;
+  height: 20%;
+  margin-right: 3px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  display: inline-block;
+  border-radius:50%;
+  font-size:0.5em;
+}
+.proton-text {
+  width: 20%;
+  position: absolute;
+  top: 31%;
+  left: 40%;
+  text-align: center;
+}
+.pres-proton-text {
+  display: none;
+}
+.presentation-desc {
+  margin: 20px 0 10px;
+  text-align: center;
+}
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+thead tr {
+  border-bottom: solid 1px #093852;
+}
+th, td {
+  padding: 3px 7px;
+}
+th {
+  text-align: left;
+  border-right: solid 1px #093852;
+  font-weight: normal;
+}
+td {
+  text-align: center;
+  min-width: 12px;
+}
+
+@keyframes fadeIn {
+   0% {opacity: 0;}
+   100% {opacity: 1;}
+}
+@keyframes fadeOut {
+   0% {opacity: 1;}
+   100% {opacity: 0;}
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 1450px) {
+  #periode-6 .cel[data-col='3'] .masse,
+  #periode-7 .cel[data-col='3'] .masse {
+    visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #periode-6 .cel[data-col='3'] .num,
+  #periode-7 .cel[data-col='3'] .num {
+    visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .nom {
+    font-size: 4em;
+  }
+  .fleche-horizontale {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #entete-group, #entete-period {
+    visibility: hidden;
+  }
+  .proton-text {
+    display: none;
+  }
+  .resp-proton-text {
+    display: block;
+  }
+  .col {
+    width: 100%;
+  }
+  #orbitales {
+    width: 70vw;
+    height: 70vw;;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  html {
+    font-size: 14px;
+  }
+  .legende-coul {
+    width: 15px;
+    height: 15px;
+  }
+  .legende-nom {
+    vertical-align: 2px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .periode:not(#periode-0) .cel {
+    height: 52px;
+  }
+  .symbol, .lan-act-fleche {
+    font-size: 1.5em;
+  }
+  .num, .masse {
+    visibility: hidden;
+  }
+  .nom {
+    font-size: 3em;
+  }
+  #periode-6 .cel[data-col='3'],
+  #periode-7 .cel[data-col='3'] {
+    max-height: 52px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #periode-6 .cel[data-col='3'],
+  #periode-7 .cel[data-col='3'] {
+    visibility: hidden;
+  }
+  .symbol {
+    font-size: 1em;
+    line-height: 2.5em;
+  }
+  .lan-act-fleche {
+    visibility: hidden;
+  }
+  .nom {
+    font-size: 2em;
+  }
+}
+

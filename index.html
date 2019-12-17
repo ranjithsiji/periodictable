@@ -1,0 +1,90 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" media="screen" href="style.css" />
+	<title>Periodic table</title>
+</head>
+<body>
+	<div id="tableau">
+    <div id="entete-period" class="opacity-zero">
+      Period<br><span class="fleche">↓</span>
+    </div>
+    <div id="entete-group" class="opacity-zero">
+      ←
+      <p>Group</p>
+      →
+    </div>
+    <div id="periode-0" class="periode">
+      <a href="#" class="cel"></a>
+    </div>
+    <div id="periode-1" class="periode"></div>
+    <div id="periode-2" class="periode"></div>
+    <div id="periode-3" class="periode"></div>
+    <div id="periode-4" class="periode"></div>
+    <div id="periode-5" class="periode"></div>
+    <div id="periode-6" class="periode">
+      <div class="lanthanide opacity-zero">
+        <div class="num">57 - 71</div>
+        <div class="lan-act-fleche">↓</div>
+        <div class="masse">Lanthanides</div>
+      </div>
+    </div>
+    <div id="periode-7" class="periode">
+      <div class="actinide opacity-zero">
+        <div class="num">89 - 103</div>
+        <div class="lan-act-fleche">↓</div>
+        <div class="masse">Actinides</div>
+      </div>
+    </div>
+    <div id="periode-8" class="periode"></div>
+    <div id="periode-9" class="periode">
+      <div class="lanthanides-row opacity-zero">
+        <div class="lan-act-fleche">→</div>
+        <div class="masse">Lanthanides</div>
+      </div>
+    </div>
+    <div id="periode-10" class="periode">
+      <div class="actinides-row opacity-zero">
+        <div class="lan-act-fleche">→</div>
+        <div class="masse">Actinides</div>
+      </div>
+    </div>
+  </div>
+  <div id="legende"></div>
+  <div id="pres-element" class="invisible">
+    <div class="pres-margin">
+      <div id="pres-content">
+        <!-- <div id="pres-bg"> -->
+          <div id="description">
+            <h2 id="presentation-nom"></h2>
+            <div class="col">
+              <div id="orbitales">
+                <div id="orbites-set" class="set"></div>
+                <div id="protons-set"></div>
+              </div>
+            </div>
+            <div id="presentation-text" class="col">
+              <div class="presentation-desc">
+                <div id="pres-proton-text"></div>
+                <div id="pres-elec-text"></div>
+              </div>
+              <table id="pres-elec-table">
+                <thead><tr><th>Shells</th></tr></thead>
+                <tbody><tr><th>Electrons</th></tr></tbody>
+              </table>
+              <div id="pres-carac-text"></div>
+            </div>
+          </div>
+          <button id="close">&#10799;</button>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+  <script
+  			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  			  crossorigin="anonymous"></script>
+  <script src="table.js"></script>
+</body>
+</html>
